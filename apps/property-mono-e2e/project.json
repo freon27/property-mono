@@ -1,0 +1,9 @@
+{
+  "name": "property-mono-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/property-mono-e2e/src",
+  "implicitDependencies": ["property-mono"],
+  "// targets": "to see all targets run: nx show project property-mono-e2e --web",
+  "targets": {}
+}
