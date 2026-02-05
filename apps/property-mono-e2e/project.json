@@ -3,7 +3,7 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "sourceRoot": "apps/property-mono-e2e/src",
-  "implicitDependencies": ["property-mono"],
+  "implicitDependencies": ["property-fe-ng"],
   "// targets": "to see all targets run: nx show project property-mono-e2e --web",
   "targets": {}
 }

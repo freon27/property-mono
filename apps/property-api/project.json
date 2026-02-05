@@ -60,6 +60,30 @@
           "buildTarget": "property-api:build:production"
         }
       }
+    },
+    "db-generate": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "drizzle-kit generate --config=libs/shared/drizzle.config.ts"
+      }
+    },
+    "db-migrate": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "drizzle-kit migrate --config=libs/shared/drizzle.config.ts"
+      }
+    },
+    "db-push": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "drizzle-kit push --config=libs/shared/drizzle.config.ts"
+      }
+    },
+    "db-studio": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "drizzle-kit studio --config=libs/shared/drizzle.config.ts"
+      }
     }
   }
 }

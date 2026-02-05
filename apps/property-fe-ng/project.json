@@ -1,25 +1,25 @@
 {
-  "name": "property-mono",
+  "name": "property-fe-ng",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "app",
-  "sourceRoot": "apps/property-mono/src",
+  "sourceRoot": "apps/property-fe-ng/src",
   "tags": [],
   "targets": {
     "build": {
       "executor": "@angular/build:application",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/property-mono",
-        "browser": "apps/property-mono/src/main.ts",
-        "tsConfig": "apps/property-mono/tsconfig.app.json",
+        "outputPath": "dist/apps/property-fe-ng",
+        "browser": "apps/property-fe-ng/src/main.ts",
+        "tsConfig": "apps/property-fe-ng/tsconfig.app.json",
         "assets": [
           {
             "glob": "**/*",
-            "input": "apps/property-mono/public"
+            "input": "apps/property-fe-ng/public"
           }
         ],
-        "styles": ["apps/property-mono/src/styles.css"]
+        "styles": ["apps/property-fe-ng/src/styles.css"]
       },
       "configurations": {
         "production": {
@@ -50,10 +50,10 @@
       "executor": "@angular/build:dev-server",
       "configurations": {
         "production": {
-          "buildTarget": "property-mono:build:production"
+          "buildTarget": "property-fe-ng:build:production"
         },
         "development": {
-          "buildTarget": "property-mono:build:development"
+          "buildTarget": "property-fe-ng:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -69,9 +69,9 @@
       "continuous": true,
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "property-mono:build",
+        "buildTarget": "property-fe-ng:build",
         "port": 4200,
-        "staticFilePath": "dist/apps/property-mono/browser",
+        "staticFilePath": "dist/apps/property-fe-ng/browser",
         "spa": true
       }
     }
