@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@property-mono/shared": ["libs/shared/src/index.ts"]
+      "@property-mono/shared": ["libs/shared/src/index.ts"],
+      "@property-mono/ui": ["libs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

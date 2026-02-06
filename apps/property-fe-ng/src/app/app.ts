@@ -1,22 +1,18 @@
-import { Component, inject, signal } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, inject } from '@angular/core';
 import { JsonPipe } from '@angular/common';
+import { PropertiesStore } from './pages/properties/properties.store';
+import { PropertiesService } from './pages/properties/properties.service';
 
 @Component({
   imports: [JsonPipe],
+  providers: [PropertiesStore, PropertiesService],
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
 export class App {
 
-  http = inject(HttpClient);
-  properties = signal<unknown[]>([])
+  store = inject(PropertiesStore);
 
-  constructor() {
-    this.http.get('http://localhost:3000/api/properties').subscribe((data) => {
-     this.properties.set(data as unknown[]);
-    });
-  }
   protected title = 'property-mono';
 }
