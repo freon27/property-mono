@@ -1,0 +1,7 @@
+.nklt-card {
+    background-color: var(--bg-app);
+    border: 1px solid var(--color-neutral-300);
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

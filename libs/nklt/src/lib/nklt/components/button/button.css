@@ -1,0 +1,107 @@
+
+:root {
+    --button-border: 2px solid transparent;
+    --button-border-radius: 4px;
+    --button-padding: 0.5rem 1rem;
+    --button-font-size: 1rem;
+    --button-font-weight: 500;
+    --button-color: var(--color-white);
+    --button-bg: var(--color-primary-600);
+    --button-hover-bg: var(--color-primary-700);
+    --button-active-bg: var(--color-primary-800);
+    --button-disabled-bg: var(--color-neutral-300);
+    --button-disabled-color: var(--color-neutral-500);
+
+.dark-mode :root {
+     --button-color: var(--color-neutral-900);
+     --button-bg: var(--color-primary-400);
+     --button-hover-bg: var(--color-primary-500);
+     --button-active-bg: var(--color-primary-600);
+     --button-disabled-bg: var(--color-neutral-700);
+     --button-disabled-color: var(--color-neutral-300);
+}
+
+}
+
+.nklt-button {
+    border: var(--button-border);
+    border-radius: var(--button-border-radius);
+    padding: var(--button-padding);
+    font-size: var(--button-font-size);
+    font-weight: var(--button-font-weight);
+    color: var(--button-color);
+    background-color: var(--button-bg);
+}
+
+.nklt-button:hover:not(:disabled) {
+    background-color: var(--button-hover-bg);
+}
+
+.nklt-button:active:not(:disabled) {
+    background-color: var(--button-active-bg);
+}
+
+.nklt-button:disabled {
+    background-color: var(--button-disabled-bg);
+    color: var(--button-disabled-color);
+    cursor: not-allowed;
+}
+
+.nklt-button.nklt-button-secondary {
+    background-color: transparent;
+    color: var(--color-primary-600);
+    border: 2px solid var(--color-primary-600);
+}
+
+.nklt-button.nklt-button-secondary:hover:not(:disabled) {
+    background-color: var(--color-primary-50);
+    border-color: var(--color-primary-700);
+    color: var(--color-primary-700);
+}
+
+.nklt-button.nklt-button-secondary:active:not(:disabled) {
+    background-color: var(--color-primary-100);
+}
+
+.nklt-button.nklt-button-secondary:disabled {
+    background-color: transparent;
+    border-color: var(--color-neutral-300);
+    color: var(--color-neutral-400);
+    cursor: not-allowed;
+}
+
+.nklt-button.nklt-button-success {
+    background-color: var(--color-success-500);
+}
+
+.nklt-button.nklt-button-success:hover:not(:disabled) {
+    background-color: var(--color-success-600);
+}
+
+.nklt-button.nklt-button-success:active:not(:disabled) {
+    background-color: var(--color-success-700);
+}
+
+.nklt-button.nklt-button-success:disabled {
+    background-color: var(--color-neutral-300);
+    color: var(--color-neutral-500);
+    cursor: not-allowed;
+}
+
+.nklt-button.nklt-button-danger {
+    background-color: var(--color-error-600);
+}
+
+.nklt-button.nklt-button-danger:hover:not(:disabled) {
+    background-color: var(--color-error-700);
+}
+
+.nklt-button.nklt-button-danger:active:not(:disabled) {
+    background-color: var(--color-error-800);
+}
+
+.nklt-button.nklt-button-danger:disabled {
+    background-color: var(--color-neutral-300);
+    color: var(--color-neutral-500);
+    cursor: not-allowed;
+}

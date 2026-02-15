@@ -85,5 +85,12 @@
         "command": "drizzle-kit studio --config=libs/shared/drizzle.config.ts"
       }
     }
+    ,
+    "db-seed": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "ts-node libs/shared/src/lib/drizzle/seed.ts"
+      }
+    }
   }
 }

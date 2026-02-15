@@ -1,0 +1,62 @@
+{
+  "name": "nklt",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/nklt/src",
+  "prefix": "lib",
+  "projectType": "library",
+  "tags": ["ui"],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "storybook": {
+      "executor": "@storybook/angular:start-storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "libs/nklt/.storybook",
+        "browserTarget": "nklt:build-storybook",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/nklt",
+        "configDir": "libs/nklt/.storybook",
+        "browserTarget": "nklt:build-storybook",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "test-storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "test-storybook -c libs/nklt/.storybook --url=http://localhost:4400"
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "dependsOn": ["build-storybook"],
+      "options": {
+        "buildTarget": "nklt:build-storybook",
+        "staticFilePath": "dist/storybook/nklt",
+        "spa": true
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "nklt:build-storybook:ci"
+        }
+      }
+    }
+  }
+}

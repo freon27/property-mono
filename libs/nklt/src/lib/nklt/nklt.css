@@ -1,0 +1,145 @@
+
+html * {
+  box-sizing: border-box;
+}
+
+:root {
+
+  --color-neutral-50:  #f8fafc; /* Page Backgrounds */
+  --color-neutral-100: #f1f5f9; /* Subtle Surfaces */
+  --color-neutral-200: #e2e8f0; /* Dividers / Borders */
+  --color-neutral-300: #cbd5e1; /* Disabled Elements */
+  --color-neutral-400: #94a3b8; /* Placeholder Text */
+  --color-neutral-500: #64748b; /* Muted Text */
+  --color-neutral-600: #475569; /* Secondary Text */
+  --color-neutral-700: #334155; /* Normal Text */
+  --color-neutral-800: #1e293b; /* Headings */
+  --color-neutral-900: #0f172a; /* Near Black */
+  --color-neutral-950: #020617; /* High Contrast Black */
+
+  --color-primary-50:  #eef2ff;
+  --color-primary-100: #e0e7ff;
+  --color-primary-200: #c7d2fe;
+  --color-primary-300: #a5b4fc;
+  --color-primary-400: #818cf8;
+  --color-primary-500: #6366f1; /* Main Brand Color */
+  --color-primary-600: #4f46e5; /* Interactive / Hover */
+  --color-primary-700: #4338ca; /* Active State */
+  --color-primary-800: #3730a3;
+  --color-primary-900: #312e81;
+  --color-primary-950: #1e1b4b;
+
+  /* Success - Green */
+  --color-success-50:  #f0fdf4;
+  --color-success-500: #22c55e;
+  --color-success-600: #16a34a;
+  --color-success-900: #14532d;
+
+  /* Error - Red */
+  --color-error-50:  #fef2f2;
+  --color-error-500: #ef4444;
+  --color-error-600: #dc2626;
+  --color-error-900: #7f1d1d;
+
+  /* Warning - Amber */
+  --color-warning-50:  #fffbeb;
+  --color-warning-500: #f59e0b;
+  --color-warning-600: #d97706;
+  --color-warning-900: #78350f;
+
+  /* Info - Sky Blue */
+  --color-info-50:  #f0f9ff;
+  --color-info-500: #0ea5e9;
+  --color-info-600: #0284c7;
+  --color-info-900: #0c4a6e;
+
+  --color-white: #ffffff;
+  --color-black: #000000;
+  
+  /* Alpha channels for subtle overlays */
+  --color-black-a10: rgba(0, 0, 0, 0.1);
+  --color-black-a50: rgba(0, 0, 0, 0.5); /* Modal Backdrop */
+  --color-white-a20: rgba(255, 255, 255, 0.2);
+  
+  --color-transparent: transparent;
+
+  --bg-app: var(--color-neutral-50);
+  --text-body: var(--color-neutral-700);
+  --link-color: var(--color-primary-600);
+  --btn-primary-bg: var(--color-primary-600);
+  --focus-ring: var(--color-primary-500);
+}
+
+
+.dark-mode {
+  --color-neutral-50:  #181a1b;
+  --color-neutral-100: #23272e;
+  --color-neutral-200: #2c313a;
+  --color-neutral-300: #3a3f4b;
+  --color-neutral-400: #4b5160;
+  --color-neutral-500: #5c6373;
+  --color-neutral-600: #6d7586;
+  --color-neutral-700: #7e8799;
+  --color-neutral-800: #8f98ac;
+  --color-neutral-900: #a0a9bf;
+  --color-neutral-950: #b1bad2;
+
+  --color-primary-50:  #1e1b4b;
+  --color-primary-100: #312e81;
+  --color-primary-200: #3730a3;
+  --color-primary-300: #4338ca;
+  --color-primary-400: #4f46e5;
+  --color-primary-500: #6366f1;
+  --color-primary-600: #818cf8;
+  --color-primary-700: #a5b4fc;
+  --color-primary-800: #c7d2fe;
+  --color-primary-900: #e0e7ff;
+  --color-primary-950: #eef2ff;
+
+  --color-success-50:  #14532d;
+  --color-success-500: #16a34a;
+  --color-success-600: #22c55e;
+  --color-success-900: #f0fdf4;
+
+  --color-error-50:  #7f1d1d;
+  --color-error-500: #dc2626;
+  --color-error-600: #ef4444;
+  --color-error-900: #fef2f2;
+
+  --color-warning-50:  #78350f;
+  --color-warning-500: #d97706;
+  --color-warning-600: #f59e0b;
+  --color-warning-900: #fffbeb;
+
+  --color-info-50:  #0c4a6e;
+  --color-info-500: #0284c7;
+  --color-info-600: #0ea5e9;
+  --color-info-900: #f0f9ff;
+
+  --color-white: #181a1b;
+  --color-black: #ffffff;
+  --color-black-a10: rgba(255, 255, 255, 0.1);
+  --color-black-a50: rgba(255, 255, 255, 0.5);
+  --color-white-a20: rgba(24, 26, 27, 0.2);
+  --color-transparent: transparent;
+
+  --bg-app: var(--color-neutral-900);
+  --text-body: var(--color-neutral-100);
+  --link-color: var(--color-primary-400);
+  --btn-primary-bg: var(--color-primary-400);
+  --focus-ring: var(--color-primary-500);
+}
+
+
+@import 'components/button/button.css';
+@import 'components/card/card.css';
+@import 'components/input/input.css';
+@import 'components/select/select.css';
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-app);
+  color: var(--text-body);
+  margin: 0;
+  padding: 1rem;
+}

@@ -1,4 +1,4 @@
-import { pgTable, serial, timestamp, text } from 'drizzle-orm/pg-core';
+import { pgTable, serial, timestamp, text, integer, point } from 'drizzle-orm/pg-core';
 import { createSelectSchema } from 'drizzle-zod';
 import { z } from 'zod';
 import { timestamps } from './timestamps.partial-entity';
@@ -9,6 +9,9 @@ export const property = pgTable('property', {
   name: text().notNull(),
   purchaseDate: timestamp('purchase_date').notNull(),
   saleDate: timestamp('sale_date'),
+  residentialUnitCount: integer('residential_unit_count').default(0),
+  commercialUnitCount: integer('commercial_unit_count').default(0),
+  location: point('location', { mode: 'xy' })
 });
 
 export const selectPropertySchema = createSelectSchema(property);

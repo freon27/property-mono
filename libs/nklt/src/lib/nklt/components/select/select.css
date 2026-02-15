@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined');
+
+:root {
+  /* Select trigger/input styles */
+  --select-border: var(--input-border);
+  --select-border-radius: var(--input-border-radius);
+  --select-padding: var(--input-padding);
+  --select-font-size: var(--input-font-size);
+  --select-font-weight: var(--input-font-weight);
+  --select-color: var(--input-color);
+  --select-bg: var(--input-bg);
+  --select-placeholder-color: var(--input-placeholder-color);
+  --select-focus-border: var(--input-focus-border);
+  --select-hover-border: var(--input-hover-border);
+  --select-disabled-bg: var(--input-disabled-bg);
+  --select-disabled-color: var(--input-disabled-color);
+  --select-disabled-border: var(--input-disabled-border);
+
+  /* Select dropdown/popup styles */
+  --select-popup-bg: var(--color-white);
+  --select-popup-border: var(--select-border);
+  --select-popup-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --select-popup-border-radius: var(--input-border-radius);
+
+  /* Select option styles */
+  --select-option-padding: 0.5rem 0.75rem;
+  --select-option-min-height: 2.5rem;
+  --select-option-color: var(--input-color);
+  --select-option-bg-hover: var(--color-neutral-100);
+  --select-option-bg-active: var(--color-primary-100);
+  --select-option-color-active: var(--select-focus-border);
+
+  /* Select arrow/icon styles */
+  --select-icon-color: var(--input-color);
+  --select-icon-size: 1.25rem;
+}
+
+.dark-mode :root {
+  --select-popup-bg: var(--color-neutral-900);
+  --select-popup-border: 2px solid var(--color-neutral-700);
+  --select-popup-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --select-option-bg-hover: var(--color-neutral-800);
+  --select-option-bg-active: var(--color-primary-900);
+  --select-option-color-active: var(--color-primary-400);
+  --select-icon-color: var(--input-color);
+}
+
+:host {
+  display: flex;
+  width: 100%;
+}
+
+.nklt-select-input {
+  display: flex;
+  position: relative;
+  align-items: center;
+  width: 100%;
+  min-height: 2.5rem;
+  border: var(--select-border);
+  border-radius: var(--select-border-radius);
+  background-color: var(--select-bg);
+  color: var(--select-color);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.nklt-select-input:has([ngComboboxInput][aria-disabled='true']) {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: var(--select-disabled-bg);
+  border-color: var(--select-disabled-border);
+  color: var(--select-disabled-color);
+}
+
+.nklt-select-input:hover:not([aria-disabled='true']) {
+  border-color: var(--select-hover-border);
+}
+
+.nklt-select-input:has([ngComboboxInput][aria-disabled='true']) {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: var(--select-disabled-bg);
+  border-color: var(--select-disabled-border);
+  color: var(--select-disabled-color);
+}
+
+[ngCombobox]:focus-within .nklt-select-input {
+  border-color: var(--select-focus-border);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+[ngComboboxInput] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  padding: var(--select-padding);
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+.nklt-combobox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: var(--select-padding);
+  flex: 1;
+  pointer-events: none;
+}
+
+.nklt-selected-label-text {
+  color: var(--select-color);
+  font-size: var(--select-font-size);
+  font-weight: var(--select-font-weight);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nklt-example-arrow {
+  position: absolute;
+  right: 0.75rem;
+  font-size: var(--select-icon-size);
+  color: var(--select-icon-color);
+  pointer-events: none;
+  transition: transform 150ms ease-in-out;
+}
+
+[ngComboboxInput][aria-expanded='true'] ~ .nklt-example-arrow {
+  transform: rotate(180deg);
+}
+
+/* Popup Styles */
+.nklt-example-popup-container {
+  min-width: 100%;
+  max-width: 100%;
+  max-height: 16rem;
+  padding: 0.5rem;
+  margin-top: 4px;
+  border: var(--select-popup-border);
+  border-radius: var(--select-popup-border-radius);
+  background-color: var(--select-popup-bg);
+  box-shadow: var(--select-popup-shadow);
+  font-size: var(--select-font-size);
+  opacity: 1;
+  visibility: visible;
+  transition:
+    max-height 150ms ease-out,
+    opacity 150ms ease-out,
+    visibility 0s;
+  z-index: 1000;
+}
+
+[ngListbox] {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Hidden state when closed */
+[ngCombobox]:has([ngComboboxInput][aria-expanded='false'])
+  .nklt-example-popup-container {
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  padding: 0;
+  margin: 0;
+  border: none;
+  transition:
+    max-height 150ms ease-in,
+    opacity 150ms ease-in,
+    visibility 0s 150ms;
+}
+
+/* Option Styles */
+[ngOption] {
+  display: flex;
+  align-items: center;
+  padding: var(--select-option-padding);
+  min-height: var(--select-option-min-height);
+  color: var(--select-option-color);
+  border-radius: var(--select-popup-border-radius);
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+[ngOption]:hover:not([aria-disabled='true']) {
+  background-color: var(--select-option-bg-hover);
+}
+
+[ngOption][data-active='true'] {
+  background-color: var(--select-option-bg-active);
+  color: var(--select-option-color-active);
+}
+
+[ngOption][aria-selected='true'] {
+  background-color: var(--select-option-bg-active);
+  color: var(--select-option-color-active);
+  font-weight: 500;
+}
+
+[ngOption]:not([aria-selected='true']) .nklt-example-option-check {
+  display: none;
+}
+
+.nklt-example-option-text {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.nklt-example-option-check {
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+  font-size: 1.25rem;
+}
+
