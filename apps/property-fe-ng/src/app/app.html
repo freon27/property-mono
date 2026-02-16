@@ -1,32 +1,48 @@
 <nav
   style="
-    padding: 1rem;
+    padding: 1rem 0;
     border-radius: 0 0 16px 16px;
     grid-column: 1 / -1;
     display: flex;
     align-items: center;
-    gap: 4rem;
+    gap: 1rem;
   "
 >
-  <h1 style="margin: 0; font-size: 1.5rem">Property Management</h1>
   <a href="#" style="text-decoration: none; margin-right: 1rem">Dashboard</a>
   <a href="#" style="text-decoration: none; margin-right: 1rem">Properties</a>
 </nav>
 
-<div style="grid-column: 1 / -1;">
-    <form>
-        <label for="propertyType">Property Type:</label>
-        <select id="propertyType" name="propertyType">
-            <option value="">All</option>
-            <option value="residential">Residential</option>
-            <option value="commercial">Commercial</option>
-        </select>
-    
-        <label for="minUnits">Min Units:</label>
-        <input type="number" id="minUnits" name="minUnits" min="0" />
-    
-        <button type="submit">Apply Filters</button>
-    </form>
+<div style="grid-column: 1 / -1">
+  <form style="display: flex; gap: 16px">
+    <div style="min-width: 250px; flex: 1 1 auto; max-width: 400px">
+      <label for="minUnits">Min Units:</label>
+
+      <nklt-select
+        [options]="[
+      { label: 'Residential', value: 'residential' },
+      { label: 'Commercial', value: 'commercial' }
+    ]"
+        [placeholder]="'Property Type'"
+      ></nklt-select>
+    </div>
+
+    <div>
+      <label for="minUnits">Min Units:</label>
+      <input type="number" id="minUnits" nkltInput name="minUnits" min="0" />
+    </div>
+
+    <div>
+      <label for="purchasedAfter">Purchased After:</label>
+      <input type="date" id="purchasedAfter" nkltInput name="purchasedAfter" />
+    </div>
+
+    <div>
+    <button type="submit" nkltButton style="margin-top: 1rem">
+      Apply Filters
+    </button>
+    </div>
+
+  </form>
 </div>
 
 <ul

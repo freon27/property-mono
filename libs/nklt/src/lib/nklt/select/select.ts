@@ -18,7 +18,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import {Input } from '../input/input';
 
 @Component({
-  selector: 'lib-select',
+  selector: 'nklt-select',
   imports: [
     Combobox,
     ComboboxInput,
@@ -43,7 +43,7 @@ import {Input } from '../input/input';
         </span>
         <input
           aria-label="Label dropdown"
-          placeholder="Select a label"
+          placeholder="Select a labeXl"
           nkltInput
           ngComboboxInput
           [disabled]="disabled()"
@@ -92,9 +92,10 @@ export class Select {
   /** The string that is displayed in the combobox. */
   displayValue = computed(() => {
     const values = this.listbox()?.values() || [];
-    return values.length ? values[0] : 'Select a label';
+    return values.length ? values[0] : this.placeholder();
   });
 
+  placeholder = input('Select an option');
   options = input<{ value: string; label: string }[]>([]);
   disabled = input(false);
 

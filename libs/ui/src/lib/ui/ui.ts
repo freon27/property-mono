@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'lib-ui',
+  selector: 'nklt-ui',
   imports: [],
   templateUrl: './ui.html',
   styleUrl: './ui.css',

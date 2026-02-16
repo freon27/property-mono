@@ -9,6 +9,7 @@ import {
 import { PropertiesStore } from './pages/properties/properties.store';
 import { PropertiesService } from './pages/properties/properties.service';
 import L from 'leaflet';
+import { Button, Input, Select } from '@property-mono/nklt';
 
 const iconRetinaUrl = 'leaflet/marker-icon-2x.png';
 const iconUrl = 'leaflet/marker-icon.png';
@@ -28,6 +29,7 @@ L.Marker.prototype.options.icon = DefaultIcon;
 
 @Component({
   providers: [PropertiesStore, PropertiesService],
+  imports: [Select, Input, Button],
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.css',
@@ -67,7 +69,6 @@ export class App implements AfterViewInit {
         attribution:
           '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
         subdomains: 'abcd',
-        maxZoom: 20,
       },
     ).addTo(map);
   }

@@ -18,8 +18,8 @@
             "glob": "**/*",
             "input": "apps/property-fe-ng/public"
           }
-      ],
-        "styles": ["node_modules/leaflet/dist/leaflet.css", "apps/property-fe-ng/src/styles.css"]
+        ],
+        "styles": ["node_modules/leaflet/dist/leaflet.css", "libs/nklt/src/lib/nklt/nklt.css", "apps/property-fe-ng/src/styles.css"]
       },
       "configurations": {
         "production": {
