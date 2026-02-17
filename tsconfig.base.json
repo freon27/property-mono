@@ -16,7 +16,6 @@
     "baseUrl": ".",
     "paths": {
       "@property-mono/shared": ["libs/shared/src/index.ts"],
-      "@property-mono/ui": ["libs/ui/src/index.ts"],
       "@property-mono/nklt": ["libs/nklt/src/index.ts"]
     }
   },
