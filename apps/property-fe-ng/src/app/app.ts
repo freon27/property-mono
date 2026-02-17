@@ -9,7 +9,7 @@ import {
 import { PropertiesStore } from './pages/properties/properties.store';
 import { PropertiesService } from './pages/properties/properties.service';
 import L from 'leaflet';
-import { Button, Input, Select } from '@property-mono/nklt';
+import { Button, Input, Select, Card } from '@property-mono/nklt';
 
 const iconRetinaUrl = 'leaflet/marker-icon-2x.png';
 const iconUrl = 'leaflet/marker-icon.png';
@@ -29,7 +29,7 @@ L.Marker.prototype.options.icon = DefaultIcon;
 
 @Component({
   providers: [PropertiesStore, PropertiesService],
-  imports: [Select, Input, Button],
+  imports: [Select, Input, Button, Card],
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.css',

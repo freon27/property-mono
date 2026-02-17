@@ -109,7 +109,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: var(--select-padding) 3rem var(--select-padding) var(--select-padding);
+  padding: var(--select-padding);
   flex: 1;
   pointer-events: none;
   

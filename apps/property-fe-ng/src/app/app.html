@@ -12,7 +12,10 @@
   <a href="#" style="text-decoration: none; margin-right: 1rem">Properties</a>
 </nav>
 
-<div style="grid-column: 1 / -1">
+<div nkltCard style="grid-column: 1 / -1">
+
+  <h4>Property Filters</h4>
+
   <form style="display: flex; gap: 16px">
     <div style="min-width: 250px; flex: 1 1 auto; max-width: 400px">
       <label for="minUnits">Min Units:</label>
@@ -45,6 +48,8 @@
   </form>
 </div>
 
+<div nkltCard style="grid-column: 1 / -1">
+
 <ul
   style="
     margin: 0;
@@ -60,13 +65,16 @@
     style="
       list-style: none;
       border: 1px solid #ccc;
-      border-radius: 16px;
+      border-radius: 8px;
       padding: 0.5rem;
       display: flex;
       flex-direction: column;
       gap: 0.25rem;
     "
   >
+    <div style="font-weight: 500; margin-bottom: 1rem;">{{ property.name }}</div>
+
+
     <img
       [src]="property.imageUrl"
       alt="image of {{ property.name }}"
@@ -74,13 +82,12 @@
         height: 300px;
         object-fit: cover;
         margin: -0.5rem -0.5rem 0.5rem -0.5rem;
-        border-radius: 16px 16px 0 0;
         object-position: center;
+      
       "
     />
-    <div style="font-weight: 500">{{ property.name }}</div>
-    <div>{{ property.residentialUnitCount }}</div>
-    <div>{{ property.commercialUnitCount }}</div>
+    <div>Residential Units: {{ property.residentialUnitCount }}</div>
+    <div>Commercial Units: {{ property.commercialUnitCount }}</div>
   </li>
   }
 </ul>
@@ -89,3 +96,4 @@
   id="map"
   style="height: 100%; width: 100%; border: 1px solid #ccc; border-radius: 16px"
 ></div>
+</div>
