@@ -13,44 +13,67 @@
 </nav>
 
 <div nkltCard style="grid-column: 1 / -1">
-
   <h4>Property Filters</h4>
 
-  <form style="display: flex; gap: 16px">
+  <form style="display: flex; gap: 16px; align-items: center;">
     <div style="min-width: 250px; flex: 1 1 auto; max-width: 400px">
-      <label for="minUnits">Min Units:</label>
-
       <nklt-select
+        aria-label="Property Type"
         [options]="[
-      { label: 'Residential', value: 'residential' },
-      { label: 'Commercial', value: 'commercial' }
-    ]"
+          { label: 'Residential', value: 'residential' },
+          { label: 'Commercial', value: 'commercial' }
+        ]"
         [placeholder]="'Property Type'"
       ></nklt-select>
     </div>
 
     <div>
-      <label for="minUnits">Min Units:</label>
-      <input type="number" id="minUnits" nkltInput name="minUnits" min="0" />
+      <input
+        type="number"
+        id="minUnits"
+        nkltInput
+        name="minUnits"
+        min="0"
+        placeholder="Min Units"
+        aria-label="Minimum Units"
+      />
     </div>
 
     <div>
-      <label for="purchasedAfter">Purchased After:</label>
-      <input type="date" id="purchasedAfter" nkltInput name="purchasedAfter" />
+      <input
+        type="date"
+        id="purchasedAfter"
+        nkltInput
+        name="purchasedAfter"
+        placeholder="Purchased After"
+        aria-label="Purchased After"
+      />
     </div>
 
     <div>
-    <button type="submit" nkltButton style="margin-top: 1rem">
-      Apply Filters
-    </button>
+      <button type="submit" nkltButton>Apply Filters</button>
     </div>
-
   </form>
 </div>
 
-<div nkltCard style="grid-column: 1 / -1">
+<div>
+  <app-dynamic-form
+    [config]="config()"
+    [inputModel]="propertyModel()" />
 
-<ul
+</div>
+
+<div nkltCard style="grid-column: 1 / -1">
+  <app-data-table
+    [dataSource]="propertiesWithImages()"
+    [columns]="[
+      { header: 'Property Name', field: 'name' },
+      { header: 'Residential Units', field: 'residentialUnitCount' },
+      { header: 'Commercial Units', field: 'commercialUnitCount' }
+    ]"
+  ></app-data-table>
+
+<!-- <ul
   style="
     margin: 0;
     display: flex;
@@ -95,5 +118,5 @@
 <div
   id="map"
   style="height: 100%; width: 100%; border: 1px solid #ccc; border-radius: 16px"
-></div>
+></div> -->
 </div>

@@ -20,6 +20,7 @@
     "@ngrx/signals": "^21.0.1",
     "@tanstack/angular-query-experimental": "5.90.25",
     "@types/geojson": "^7946.0.16",
+    "ag-grid-angular": "^35.1.0",
     "axios": "^1.6.0",
     "drizzle-kit": "^0.31.8",
     "drizzle-orm": "^0.45.1",
