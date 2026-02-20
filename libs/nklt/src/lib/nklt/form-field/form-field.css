@@ -1,0 +1,81 @@
+:root {
+  --form-field-spacing: 0.25rem;
+  --form-field-label-color: var(--color-neutral-700);
+  --form-field-label-font-size: 0.875rem;
+  --form-field-label-font-weight: 500;
+  --form-field-hint-color: var(--color-neutral-500);
+  --form-field-hint-font-size: 0.75rem;
+  --form-field-error-color: var(--color-error-600);
+  --form-field-error-font-size: 0.75rem;
+  --form-field-required-color: var(--color-error-500);
+}
+
+.dark-mode :root {
+  --form-field-label-color: var(--color-neutral-200);
+  --form-field-hint-color: var(--color-neutral-400);
+  --form-field-error-color: var(--color-error-500);
+}
+
+.nklt-form-field {
+  display: block;
+  width: 100%;
+}
+
+.nklt-form-field-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--form-field-spacing);
+}
+
+.nklt-form-field-label {
+  display: block;
+  color: var(--form-field-label-color);
+  font-size: var(--form-field-label-font-size);
+  font-weight: var(--form-field-label-font-weight);
+  line-height: 1.25rem;
+}
+
+.nklt-form-field-required {
+  color: var(--form-field-required-color);
+  margin-left: 0.125rem;
+}
+
+.nklt-form-field-content {
+  display: block;
+  width: 100%;
+}
+
+.nklt-form-field-hint {
+  color: var(--form-field-hint-color);
+  font-size: var(--form-field-hint-font-size);
+  line-height: 1rem;
+}
+
+.nklt-form-field-error {
+  color: var(--form-field-error-color);
+  font-size: var(--form-field-error-font-size);
+  line-height: 1rem;
+  font-weight: 500;
+}
+
+/* Invalid state styling */
+.nklt-form-field-invalid .nklt-input,
+.nklt-form-field-invalid .nklt-select-input {
+  border-color: var(--color-error-600);
+}
+
+.nklt-form-field-invalid .nklt-input:focus,
+.nklt-form-field-invalid .nklt-select-input:focus-within {
+  border-color: var(--color-error-600);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* Disabled state */
+.nklt-form-field-disabled .nklt-form-field-label {
+  color: var(--color-neutral-400);
+  cursor: not-allowed;
+}
+
+.nklt-form-field-disabled .nklt-form-field-hint {
+  color: var(--color-neutral-400);
+}
