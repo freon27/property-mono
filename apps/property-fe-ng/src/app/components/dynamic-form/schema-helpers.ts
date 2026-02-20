@@ -7,8 +7,8 @@ import {
 } from '@angular/forms/signals';
 import { FormFieldConfig } from './dynamic-form.model';
 
-export function toSchema(meta: FormFieldConfig[]): Schema<unknown> {
-  return schema<unknown>((path) => {
+export function toSchema<T>(meta: FormFieldConfig[]): Schema<T> {
+  return schema<T>((path) => {
     for (const fieldDef of meta) {
       const prop = fieldDef.name;
       const fieldPath = (path as any)[prop];

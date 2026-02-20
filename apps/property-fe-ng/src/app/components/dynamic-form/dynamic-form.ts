@@ -1,4 +1,4 @@
-import { Component, effect, input, linkedSignal, signal } from '@angular/core';
+import { Component, computed, effect, inject, Injector, input, linkedSignal, output, runInInjectionContext, untracked } from '@angular/core';
 import {
   form,
   FormField
@@ -7,7 +7,6 @@ import { toSchema } from './schema-helpers';
 import type { FormFieldConfig } from './dynamic-form.model';
 import { JsonPipe } from '@angular/common';
 import { Input } from '@property-mono/nklt';
-import { property } from '@property-mono/shared';
 
 @Component({
   selector: 'app-dynamic-form',
@@ -16,7 +15,7 @@ import { property } from '@property-mono/shared';
     <form>
       @for (fieldConfig of config(); track fieldConfig.name) {
 
-        @let field = $any(dynamicForm)[fieldConfig.name];
+        @let field = $any(dynamicForm())[fieldConfig.name];
 
         <div>
           <label>{{ fieldConfig.label }}</label>
@@ -33,39 +32,39 @@ import { property } from '@property-mono/shared';
         </div>
       }
     </form>
-
-    
   `,
-  styleUrl: './dynamic-form.css',
+  styles: `
+      :host {
+        display: contents;
+      }
+  `
 })
 export class DynamicForm<T> {
+  private injector = inject(Injector);
+
   config = input.required<FormFieldConfig[]>();
 
-  inputModel = input.required<Record<string, unknown>>();
+  inputModel = input.required<T>();
 
+  valid = output<boolean>();    
 
-  // mod = signal<{
-  //   propertyName: string;
-  //   residentialUnitCount: number;
-  //   purchaseDate: string;
-  // }>({
-  //   propertyName: 'My Property',
-  //   residentialUnitCount: 10,
-  //   purchaseDate: new Date().toISOString().substring(0, 10)
-  // })
+  valueUpdate = output<T>();
 
   formValue = linkedSignal(() => this.inputModel());
 
-  dynamicForm = form(this.formValue);
+  dynamicForm = computed(() => 
+    runInInjectionContext(this.injector, () => 
+      untracked(() => form(this.formValue, toSchema(this.config())))
+    )
+  );
+
+  formValid = computed(() => this.dynamicForm()().valid());
 
   constructor() {
-
-
-
     effect(() => {
-    console.log('Form :', this.dynamicForm, this.dynamicForm());
-
-      // console.log('Schema :', toSchema(this.config()));
+      const currentForm = this.dynamicForm()();
+      this.valid.emit(currentForm.valid());
+      this.valueUpdate.emit(currentForm.value() as T);
     });
   }
 }

@@ -20,7 +20,7 @@ export interface ColumnConfig<T> {
     >
     </ag-grid-angular>
   `,
-  styleUrls: ['./data-table.css'],
+  styles: ``
 })
 export class DataTable<Data> {
   columns = input.required<ColumnConfig<Data>[]>();

@@ -59,8 +59,13 @@
 <div>
   <app-dynamic-form
     [config]="config()"
-    [inputModel]="propertyModel()" />
+    [inputModel]="propertyModel()" 
+    (valid)="setFormValid($event)"
+    (valueUpdate)="setFormValue($event)"
+    />
 
+    {{ formValid() | json }}
+    {{ propertyModel() | json }}
 </div>
 
 <div nkltCard style="grid-column: 1 / -1">
@@ -72,51 +77,4 @@
       { header: 'Commercial Units', field: 'commercialUnitCount' }
     ]"
   ></app-data-table>
-
-<!-- <ul
-  style="
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: 0;
-    overflow: auto;
-  "
->
-  @for (property of propertiesWithImages(); track property) {
-  <li
-    style="
-      list-style: none;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      padding: 0.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-    "
-  >
-    <div style="font-weight: 500; margin-bottom: 1rem;">{{ property.name }}</div>
-
-
-    <img
-      [src]="property.imageUrl"
-      alt="image of {{ property.name }}"
-      style="
-        height: 300px;
-        object-fit: cover;
-        margin: -0.5rem -0.5rem 0.5rem -0.5rem;
-        object-position: center;
-      
-      "
-    />
-    <div>Residential Units: {{ property.residentialUnitCount }}</div>
-    <div>Commercial Units: {{ property.commercialUnitCount }}</div>
-  </li>
-  }
-</ul>
-
-<div
-  id="map"
-  style="height: 100%; width: 100%; border: 1px solid #ccc; border-radius: 16px"
-></div> -->
 </div>
